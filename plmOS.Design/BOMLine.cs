@@ -34,8 +34,8 @@ namespace plmOS.Design
     {
         public Model.Properties.Double Quantity { get; private set; }
 
-        public BOMLine(Model.Store Store, Model.RelationshipType RelationshipType, Part Parent, Part Child)
-            : base(Store, RelationshipType, Parent, Child)
+        public BOMLine(Model.RelationshipType RelationshipType, Part Parent, Part Child)
+            : base(RelationshipType, Parent, Child)
         {
             this.Quantity = new Model.Properties.Double(this);
         }

@@ -38,8 +38,8 @@ namespace plmOS.Design
 
         public Model.Properties.String Name { get; private set; }
 
-        public Part(Model.Store Store, Model.ItemType ItemType)
-            : base(Store, ItemType)
+        public Part(Model.ItemType ItemType)
+            : base(ItemType)
         {
             this.Number = new Model.Properties.String(this, 32);
             this.Revision = new Model.Properties.String(this, 16);
