@@ -41,9 +41,9 @@ namespace plmOS.Design
         public Part(Model.ItemType ItemType)
             : base(ItemType)
         {
-            this.Number = new Model.Properties.String(this, 32);
-            this.Revision = new Model.Properties.String(this, 16);
-            this.Name = new Model.Properties.String(this, 64);
+            this.Number = new Model.Properties.String(this, false, 32);
+            this.Revision = new Model.Properties.String(this, false, 16);
+            this.Name = new Model.Properties.String(this, false, 64);
         }
     }
 }

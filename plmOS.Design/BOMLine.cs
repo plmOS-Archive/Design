@@ -37,7 +37,7 @@ namespace plmOS.Design
         public BOMLine(Model.RelationshipType RelationshipType, Part Parent, Part Child)
             : base(RelationshipType, Parent, Child)
         {
-            this.Quantity = new Model.Properties.Double(this);
+            this.Quantity = new Model.Properties.Double(this, false);
         }
     }
 }
