@@ -30,14 +30,16 @@ using System.Threading.Tasks;
 
 namespace plmOS.Design
 {
+    [Model.RelationshipAttribute(typeof(Part), ChildType=typeof(Part))]
     public class BOMLine : Model.Relationship
     {
+        [Model.PropertyAttributes.DoubleProperty(true, false)]
         public Model.Properties.Double Quantity { get; private set; }
 
-        public BOMLine(Model.RelationshipType RelationshipType, Part Parent, Part Child)
+        public BOMLine(Model.RelationshipType RelationshipType, Model.Item Parent, Model.Item Child)
             : base(RelationshipType, Parent, Child)
         {
-            this.Quantity = new Model.Properties.Double(this, false);
+            this.InitialiseProperty("Quantity");
         }
     }
 }

@@ -32,18 +32,21 @@ namespace plmOS.Design
 {
     public class Part : Model.Item
     {
+        [Model.PropertyAttributes.StringProperty(true, false, 32)]
         public Model.Properties.String Number { get; private set; }
 
+        [Model.PropertyAttributes.StringProperty(true, false, 32)]
         public Model.Properties.String Revision { get; private set; }
 
+        [Model.PropertyAttributes.StringProperty(false, false, 256)]
         public Model.Properties.String Name { get; private set; }
 
         public Part(Model.ItemType ItemType)
             : base(ItemType)
         {
-            this.Number = new Model.Properties.String(this, false, 32);
-            this.Revision = new Model.Properties.String(this, false, 16);
-            this.Name = new Model.Properties.String(this, false, 64);
+            this.InitialiseProperty("Number");
+            this.InitialiseProperty("Revision");
+            this.InitialiseProperty("Name");
         }
     }
 }

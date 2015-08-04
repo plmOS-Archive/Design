@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\plmOS.Model\plmOS.Model.csproj">
+    <ProjectReference Include="..\..\Model\plmOS\plmOS.csproj">
       <Project>{1556ca37-8b2e-4d29-bd7c-55e342dbc611}</Project>
-      <Name>plmOS.Model</Name>
+      <Name>plmOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
