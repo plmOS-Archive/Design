@@ -41,5 +41,11 @@ namespace plmOS.Design
         {
             this.InitialiseProperty("Quantity");
         }
+
+        public BOMLine(Database.IRelationship DatabaseRelationship)
+            :base(DatabaseRelationship)
+        {
+            this.InitialiseProperty("Quantity", DatabaseRelationship);
+        }
     }
 }

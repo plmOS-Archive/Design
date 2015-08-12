@@ -48,5 +48,13 @@ namespace plmOS.Design
             this.InitialiseProperty("Revision");
             this.InitialiseProperty("Name");
         }
+
+        public Part(Database.IItem DatabaseItem)
+            :base(DatabaseItem)
+        {
+            this.InitialiseProperty("Number", DatabaseItem);
+            this.InitialiseProperty("Revision", DatabaseItem);
+            this.InitialiseProperty("Name", DatabaseItem);
+        }
     }
 }
