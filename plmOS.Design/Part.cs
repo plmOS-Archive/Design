@@ -41,16 +41,16 @@ namespace plmOS.Design
         [Model.PropertyAttributes.StringProperty(false, false, 256)]
         public Model.Properties.String Name { get; private set; }
 
-        public Part(Model.ItemType ItemType)
-            : base(ItemType)
+        public Part(Model.Session Session, Model.ItemType ItemType)
+            : base(Session, ItemType)
         {
             this.InitialiseProperty("Number");
             this.InitialiseProperty("Revision");
             this.InitialiseProperty("Name");
         }
 
-        public Part(Database.IItem DatabaseItem)
-            :base(DatabaseItem)
+        public Part(Model.Session Session, Database.IItem DatabaseItem)
+            :base(Session, DatabaseItem)
         {
             this.InitialiseProperty("Number", DatabaseItem);
             this.InitialiseProperty("Revision", DatabaseItem);

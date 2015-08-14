@@ -36,14 +36,14 @@ namespace plmOS.Design
         [Model.PropertyAttributes.DoubleProperty(true, false)]
         public Model.Properties.Double Quantity { get; private set; }
 
-        public BOMLine(Model.RelationshipType RelationshipType, Model.Item Parent, Model.Item Child)
-            : base(RelationshipType, Parent, Child)
+        public BOMLine(Model.Session Session, Model.RelationshipType RelationshipType, Model.Item Parent, Model.Item Child)
+            : base(Session, RelationshipType, Parent, Child)
         {
             this.InitialiseProperty("Quantity");
         }
 
-        public BOMLine(Database.IRelationship DatabaseRelationship)
-            :base(DatabaseRelationship)
+        public BOMLine(Model.Session Session, Database.IRelationship DatabaseRelationship)
+            :base(Session, DatabaseRelationship)
         {
             this.InitialiseProperty("Quantity", DatabaseRelationship);
         }
