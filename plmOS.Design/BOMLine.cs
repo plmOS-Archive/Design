@@ -41,15 +41,13 @@ namespace plmOS.Design
         public BOMLine(Model.Session Session, Model.RelationshipType RelationshipType, Part Parent)
             : base(Session, RelationshipType, Parent)
         {
-            this.InitialiseProperty("Child");
-            this.InitialiseProperty("Quantity");
+            this.Initialise();
         }
 
         public BOMLine(Model.Session Session, Database.IRelationship DatabaseRelationship)
             :base(Session, DatabaseRelationship)
         {
-            this.InitialiseProperty("Child", DatabaseRelationship);
-            this.InitialiseProperty("Quantity", DatabaseRelationship);
+            this.Initialise(DatabaseRelationship);
         }
     }
 }

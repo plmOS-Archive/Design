@@ -44,17 +44,13 @@ namespace plmOS.Design
         public Part(Model.Session Session, Model.ItemType ItemType)
             : base(Session, ItemType)
         {
-            this.InitialiseProperty("Number");
-            this.InitialiseProperty("Revision");
-            this.InitialiseProperty("Name");
+            this.Initialise();
         }
 
         public Part(Model.Session Session, Database.IItem DatabaseItem)
             :base(Session, DatabaseItem)
         {
-            this.InitialiseProperty("Number", DatabaseItem);
-            this.InitialiseProperty("Revision", DatabaseItem);
-            this.InitialiseProperty("Name", DatabaseItem);
+            this.Initialise(DatabaseItem);
         }
     }
 }
