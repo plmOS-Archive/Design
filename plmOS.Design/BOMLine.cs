@@ -30,21 +30,25 @@ using System.Threading.Tasks;
 
 namespace plmOS.Design
 {
-    [Model.RelationshipAttribute(typeof(Part), ChildType=typeof(Part))]
     public class BOMLine : Model.Relationship
     {
+         [Model.PropertyAttributes.ItemProperty(true, false, typeof(Part))]
+        public Model.Properties.Item Child { get; private set; }
+
         [Model.PropertyAttributes.DoubleProperty(true, false)]
         public Model.Properties.Double Quantity { get; private set; }
 
-        public BOMLine(Model.Session Session, Model.RelationshipType RelationshipType, Model.Item Parent, Model.Item Child)
-            : base(Session, RelationshipType, Parent, Child)
+        public BOMLine(Model.Session Session, Model.RelationshipType RelationshipType, Part Parent)
+            : base(Session, RelationshipType, Parent)
         {
+            this.InitialiseProperty("Child");
             this.InitialiseProperty("Quantity");
         }
 
         public BOMLine(Model.Session Session, Database.IRelationship DatabaseRelationship)
             :base(Session, DatabaseRelationship)
         {
+            this.InitialiseProperty("Child", DatabaseRelationship);
             this.InitialiseProperty("Quantity", DatabaseRelationship);
         }
     }
