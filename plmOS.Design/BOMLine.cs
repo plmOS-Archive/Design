@@ -32,20 +32,20 @@ namespace plmOS.Design
 {
     public class BOMLine : Model.Relationship
     {
-         [Model.PropertyAttributes.ItemProperty(true, false, typeof(Part))]
+        [Model.PropertyAttributes.ItemProperty(true, false, typeof(Part))]
         public Model.Properties.Item Child { get; private set; }
 
         [Model.PropertyAttributes.DoubleProperty(true, false)]
         public Model.Properties.Double Quantity { get; private set; }
 
-        public BOMLine(Model.Session Session, Model.RelationshipType RelationshipType, Part Parent)
-            : base(Session, RelationshipType, Parent)
+        public BOMLine(Model.Session Session, Part Parent)
+            : base(Session, Parent)
         {
             this.Initialise();
         }
 
         public BOMLine(Model.Session Session, Database.IRelationship DatabaseRelationship)
-            :base(Session, DatabaseRelationship)
+            : base(Session, DatabaseRelationship)
         {
             this.Initialise(DatabaseRelationship);
         }

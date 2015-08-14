@@ -41,8 +41,8 @@ namespace plmOS.Design
         [Model.PropertyAttributes.StringProperty(false, false, 256)]
         public Model.Properties.String Name { get; private set; }
 
-        public Part(Model.Session Session, Model.ItemType ItemType)
-            : base(Session, ItemType)
+        public Part(Model.Session Session)
+            : base(Session)
         {
             this.Initialise();
         }
