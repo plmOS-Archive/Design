@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BOMLine.cs" />
     <Compile Include="Part.cs" />
+    <Compile Include="PartTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

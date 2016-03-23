@@ -33,23 +33,36 @@ namespace plmOS.Design
     public class Part : Model.Item
     {
         [Model.PropertyAttributes.StringProperty(true, false, 32)]
-        public Model.Properties.String Number { get; private set; }
+        public String Number { get; set; }
 
         [Model.PropertyAttributes.StringProperty(true, false, 32)]
-        public Model.Properties.String Revision { get; private set; }
+        public String Revision { get; set; }
 
         [Model.PropertyAttributes.StringProperty(false, false, 256)]
-        public Model.Properties.String Name { get; private set; }
+        public String Name { get; set; }
+
+        [Model.PropertyAttributes.DateTimeProperty(false, false)]
+        public DateTime Created { get; set; }
+
+        [Model.PropertyAttributes.DateTimeProperty(false, false)]
+        public DateTime Modified { get; set; }
+
+        [Model.PropertyAttributes.BooleanProperty(false, false)]
+        public Boolean Released { get; set; }
+
+        [Model.PropertyAttributes.ListProperty(false, false)]
+        public PartTypes Type { get; private set; }
 
         public Part(Model.Session Session)
             : base(Session)
         {
-            this.Initialise();
+            this.Type = new PartTypes();
         }
 
         public Part(Model.Session Session, Database.IItem DatabaseItem)
-            :base(Session, DatabaseItem)
+            : base(Session, DatabaseItem)
         {
+            this.Type = new PartTypes();
             this.Initialise(DatabaseItem);
         }
     }
